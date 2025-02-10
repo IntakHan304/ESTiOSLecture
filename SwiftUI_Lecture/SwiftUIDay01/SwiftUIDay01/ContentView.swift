@@ -23,12 +23,11 @@ struct ContentView: View {
             HStack {
                 TextField("단어 입력", text: $newWord)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
                 Button("추가") {
                     addWord()
                 }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
             
             //단어 목록
             List (words, id: \.self) { word in
@@ -41,7 +40,6 @@ struct ContentView: View {
             HStack {
                 TextField("단어 삭제", text: $wordToDelete)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
                 Button("삭제") {
                     deleteWord()
                 }
@@ -52,7 +50,6 @@ struct ContentView: View {
             HStack {
                 TextField("검색할 단어 입력", text: $searchWord)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
                 Button("검색") {
                     searchWordArr()
                 }
@@ -95,7 +92,7 @@ struct ContentView: View {
     // 단어 검색 함수
     func searchWordArr() {
         if let index = words.firstIndex(of: searchWord) {
-            message = "\(searchWord)은 배열의 \(index + 1)번째 위치에 있습니다."
+            message = "\(searchWord)은(는) \(index + 1)번째 위치에 있습니다."
         } else {
             message = "해당 단어가 목록에 없습니다."
         }
